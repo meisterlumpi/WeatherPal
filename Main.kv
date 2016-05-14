@@ -1,0 +1,93 @@
+<HomeScreen>:
+    # start-up screen, display sensor data, etc.
+    # three column box layout to fit 7" screen, res.: 800x480 px
+    #label_id: label_id
+    #Label:
+    #    id: label_id
+    #    text: str(id(root))
+    lab_2: lab_2
+    lbl_city: lbl_city
+    lbl_temp: lbl_temp
+    img_weather_icon: img_weather_icon
+    BoxLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                Label:
+                    id: lbl_city
+                    text: '<city>'
+                Image:
+                    id: img_weather_icon
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    source: 'images\\icons\\Einstein_50x50.jpg'
+                    #source: 'images\\icons\\openweathermap\\10n.png'
+            Label:
+                id: lbl_temp
+                text: '<temp>'
+            Image:
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+               #source: 'flaticon.com\\9-vibrant-weather-climate-vector-icons-set\\small.jpg'
+                source: 'flaticon.com\\MyIcons (1)\\png\\rainy12.png'
+            Button:
+                text: 'test btn'
+                #on_press:
+        Button:
+            text: 'fullscreen'
+            #on_press: root.manager.current = 'draw'
+            on_press: root.toggle_fullscreen()
+        Label:
+            id: lab_2
+            font_size: 20
+            color: 0.8, 0, 0, 1
+            text: '3'
+        #Button:
+        #    text: 'no 3'
+        #    on_press: app.load_next_slide()
+
+
+
+
+<SettingsScreen>:
+    #label_id: label_id
+    tb_location: tb_location
+    #Label:
+    #    id: label_id
+    #    text: str(id(root))
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id: tb_location
+            text: root.get_location()
+            #on_focus: root.show_keyboard()
+        Button:
+            text: 'Save'
+            on_press: root.set_location()
+            #on_press: root.show_keyboard()
+        #Button:
+        #    text: 'Back to menu'
+        #    #on_press: root.manager.current = 'home'
+
+
+
+<DrawScreen>:
+    #label_id: label_id
+    #Label:
+    #    id: label_id
+    #    text: str(id(root))
+
+<Carousel>
+    #on_current_slide: print(args[1].label_id.text)
+
+<NumericVKeyboard>:
+    layout: "numeric"
+    size: (700,70)
